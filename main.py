@@ -28,9 +28,8 @@ with TelegramClient(StringSession(ses_string), api_id, api_hash) as client:
     while True:
         try:
             # Waits 2500 seconds (~40 minutes) each iteration
-            time.sleep(10)
+            time.sleep(2500)
             
-
 
             usernamer = ""
             for i in range(0,randrange(32-7)+7):
@@ -40,8 +39,10 @@ with TelegramClient(StringSession(ses_string), api_id, api_hash) as client:
                 username=usernamer
             ))
 
-            # Prints True if the randomly generated username is available
-            print(result)
+            if result:
+              print("Randomly generated username is available, it should be now changed.")
+            else:
+              print("Randomly generated username is already taken...")
 
 
             if not result:
