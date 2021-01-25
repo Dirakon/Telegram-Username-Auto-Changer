@@ -13,22 +13,21 @@ api_hash = os.getenv('app_hash')
 
 # Use this (retrieve sessionString in the runtime):
 
-with TelegramClient(StringSession(), api_id, api_hash) as client:
-
-    ses_string = client.session.save()
+#with TelegramClient(StringSession(), api_id, api_hash) as client:
+#
+#    ses_string = client.session.save()
     
-# Or this (keep it saved in .env):
-#ses_string = os.getenv('ses_string')
+# Or this (keep it saved in .env for your security reasons):
+ses_string = os.getenv('ses_string')
     
-
 keep_alive()
 
 alph = ['a','b','c','d','e','f','g','h','i','g','k','A','B','D','C','E','G','F','x','X','v','V','w','W','l','L','m','M','n','N','R','r','q','Q','p','P','j','J','s','S','z','Z']
 with TelegramClient(StringSession(ses_string), api_id, api_hash) as client:
     while True:
         try:
-            # Waits 2500 seconds (~40 minutes) each iteration
-            time.sleep(2500)
+            # Waits 20000 seconds (~5.5 hours) each iteration, wait time is enormous since FloodWaitErrors are irritating. THAT should be enough I hope. 
+            time.sleep(20000)
             
 
             usernamer = ""
